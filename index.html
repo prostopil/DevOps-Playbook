@@ -1,0 +1,423 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Guide - Git</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>DevOps Шпаргалка</h1>
+      <nav>
+        <button class="active" onclick="showSection('git')">Git</button>
+        <button onclick="showSection('docker')">Docker</button>
+        <button onclick="showSection('ci-cd')">CI/CD</button>
+        <button onclick="showSection('kubernetes')">Kubernetes</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="git" class="active">
+        <div class="git-sections">
+          <div class="git-nav">
+            <button class="git-tab active" onclick="showGitSection('git-basic')">Git Базовый</button>
+            <button class="git-tab" onclick="showGitSection('git-detailed')">Git Подробный</button>
+            <button class="git-tab" onclick="showGitSection('git-advanced')">Git Advanced</button>
+            <button class="git-tab" onclick="showGitSection('git-visual')">Git Visual Guide</button>
+          </div>
+          
+          <div id="git-basic" class="git-content active">
+            <h2>Базовые команды Git</h2>
+            <div class="command-container">
+              <div class="step">
+                <h3>1. Первоначальная настройка нового проекта</h3>
+                <div class="command">
+                  <code>cd путь/к/вашей/папке</code>
+                  <button onclick="copyToClipboard('cd путь/к/вашей/папке')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Переход в папку проекта</p>
+
+                <div class="command">
+                  <code>git init</code>
+                  <button onclick="copyToClipboard('git init')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Инициализация Git репозитория</p>
+              </div>
+
+              <div class="step">
+                <h3>2. Добавление и отправка файлов</h3>
+                <div class="command">
+                  <code>git add .</code>
+                  <button onclick="copyToClipboard('git add .')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Добавить все файлы</p>
+
+                <div class="command">
+                  <code>git commit -m "описание изменений"</code>
+                  <button onclick="copyToClipboard('git commit -m "описание изменений"')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Создать коммит</p>
+
+                <div class="command">
+                  <code>git push</code>
+                  <button onclick="copyToClipboard('git push')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Отправить изменения на сервер</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="git-detailed" class="git-content">
+            <h2>Подробная инструкция по работе с Git</h2>
+            <div class="command-container">
+              <div class="step">
+                <h3>1. Начало работы с новым проектом</h3>
+                <ol>
+                  <li>
+                    <div class="command">
+                      <code>cd C:\Projects\MyProject</code>
+                      <button onclick="copyToClipboard('cd C:\\Projects\\MyProject')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Перейдите в папку проекта (Windows)</p>
+                    <div class="command">
+                      <code>cd ~/Projects/MyProject</code>
+                      <button onclick="copyToClipboard('cd ~/Projects/MyProject')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Перейдите в папку проекта (Linux/Mac)</p>
+                  </li>
+                  <li>
+                    <div class="command">
+                      <code>git init</code>
+                      <button onclick="copyToClipboard('git init')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Инициализируйте Git репозиторий</p>
+                  </li>
+                  <li>
+                    <div class="command">
+                      <code>git remote add origin https://github.com/username/repository.git</code>
+                      <button onclick="copyToClipboard('git remote add origin https://github.com/username/repository.git')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Привяжите удаленный репозиторий (замените URL на ваш)</p>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="step">
+                <h3>2. Добавление изменений в существующий проект</h3>
+                <ol>
+                  <li>
+                    <div class="command">
+                      <code>git status</code>
+                      <button onclick="copyToClipboard('git status')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Проверьте статус изменений</p>
+                  </li>
+                  <li>
+                    <div class="command">
+                      <code>git add имя_файла</code>
+                      <button onclick="copyToClipboard('git add имя_файла')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Добавьте конкретный файл</p>
+                    <div class="command">
+                      <code>git add .</code>
+                      <button onclick="copyToClipboard('git add .')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Или добавьте все измененные файлы</p>
+                  </li>
+                  <li>
+                    <div class="command">
+                      <code>git commit -m "подробное описание изменений"</code>
+                      <button onclick="copyToClipboard('git commit -m "подробное описание изменений"')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Создайте коммит с описанием изменений</p>
+                  </li>
+                  <li>
+                    <div class="command">
+                      <code>git pull</code>
+                      <button onclick="copyToClipboard('git pull')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Получите последние изменения с сервера (важно сделать перед push)</p>
+                  </li>
+                  <li>
+                    <div class="command">
+                      <code>git push</code>
+                      <button onclick="copyToClipboard('git push')" class="copy-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                          <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p>Отправьте изменения на сервер</p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <div id="git-advanced" class="git-content">
+            <h2>Расширенные команды Git</h2>
+            <div class="command-container">
+              <div class="step">
+                <h3>1. Работа с ветками</h3>
+                <div class="command">
+                  <code>git branch new-feature</code>
+                  <button onclick="copyToClipboard('git branch new-feature')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Создает новую ветку</p>
+
+                <div class="command">
+                  <code>git checkout -b feature-branch</code>
+                  <button onclick="copyToClipboard('git checkout -b feature-branch')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Создает и переключается на новую ветку</p>
+              </div>
+
+              <div class="step">
+                <h3>2. Слияние и разрешение конфликтов</h3>
+                <div class="command">
+                  <code>git merge feature-branch</code>
+                  <button onclick="copyToClipboard('git merge feature-branch')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Сливает указанную ветку в текущую</p>
+
+                <div class="command">
+                  <code>git mergetool</code>
+                  <button onclick="copyToClipboard('git mergetool')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Запускает инструмент разрешения конфликтов</p>
+              </div>
+
+              <div class="step">
+                <h3>3. История и логи</h3>
+                <div class="command">
+                  <code>git log --graph --oneline --all</code>
+                  <button onclick="copyToClipboard('git log --graph --oneline --all')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Показывает графическое представление истории коммитов</p>
+
+                <div class="command">
+                  <code>git reflog</code>
+                  <button onclick="copyToClipboard('git reflog')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Показывает историю всех действий в репозитории</p>
+              </div>
+
+              <div class="step">
+                <h3>4. Отмена изменений</h3>
+                <div class="command">
+                  <code>git reset --hard HEAD~1</code>
+                  <button onclick="copyToClipboard('git reset --hard HEAD~1')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Отменяет последний коммит</p>
+
+                <div class="command">
+                  <code>git revert HEAD</code>
+                  <button onclick="copyToClipboard('git revert HEAD')" class="copy-btn">
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path fill="currentColor" d="M16 1H4C3 1 2 2 2 3v14h2V3h12V1zm3 4H8C7 5 6 6 6 7v14c0 1 1 2 2 2h11c1 0 2-1 2-2V7c0-1-1-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                  </button>
+                </div>
+                <p>Создает новый коммит, отменяющий изменения последнего коммита</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="git-visual" class="git-content">
+            <h2>Визуальное руководство по Git</h2>
+            
+            <div class="visual-guide">
+              <div class="visual-section">
+                <h3>Основной рабочий процесс Git</h3>
+                <div class="workflow-diagram">
+                  <svg width="800" height="300" viewBox="0 0 800 300">
+                    <!-- Working Directory -->
+                    <rect x="50" y="100" width="150" height="80" rx="10" fill="#e1f5fe" stroke="#0288d1" stroke-width="2"/>
+                    <text x="125" y="145" text-anchor="middle" fill="#0288d1">Working Directory</text>
+                    
+                    <!-- Staging Area -->
+                    <rect x="300" y="100" width="150" height="80" rx="10" fill="#f1f8e9" stroke="#689f38" stroke-width="2"/>
+                    <text x="375" y="145" text-anchor="middle" fill="#689f38">Staging Area</text>
+                    
+                    <!-- Local Repository -->
+                    <rect x="550" y="100" width="150" height="80" rx="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+                    <text x="625" y="145" text-anchor="middle" fill="#f57c00">Local Repository</text>
+                    
+                    <!-- Arrows -->
+                    <path d="M200 140 L300 140" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M450 140 L550 140" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Commands -->
+                    <text x="250" y="120" text-anchor="middle" fill="#666">git add</text>
+                    <text x="500" y="120" text-anchor="middle" fill="#666">git commit</text>
+                    
+                    <!-- Arrow Marker -->
+                    <defs>
+                      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+                      </marker>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="visual-section">
+                <h3>Работа с ветками</h3>
+                <div class="branch-diagram">
+                  <svg width="800" height="300" viewBox="0 0 800 300">
+                    <!-- Main branch -->
+                    <line x1="50" y1="100" x2="750" y2="100" stroke="#0288d1" stroke-width="4"/>
+                    <text x="400" y="80" text-anchor="middle" fill="#0288d1">main</text>
+                    
+                    <!-- Feature branch -->
+                    <path d="M200 100 Q 300 100 300 150 L 500 150 Q 500 100 600 100" 
+                          fill="none" stroke="#689f38" stroke-width="4"/>
+                    <text x="400" y="170" text-anchor="middle" fill="#689f38">feature</text>
+                    
+                    <!-- Commit points -->
+                    <circle cx="100" cy="100" r="8" fill="#0288d1"/>
+                    <circle cx="200" cy="100" r="8" fill="#0288d1"/>
+                    <circle cx="300" cy="150" r="8" fill="#689f38"/>
+                    <circle cx="400" cy="150" r="8" fill="#689f38"/>
+                    <circle cx="500" cy="150" r="8" fill="#689f38"/>
+                    <circle cx="600" cy="100" r="8" fill="#0288d1"/>
+                    <circle cx="700" cy="100" r="8" fill="#0288d1"/>
+                    
+                    <!-- Commands -->
+                    <text x="200" y="80" text-anchor="middle" fill="#666">git branch feature</text>
+                    <text x="600" y="80" text-anchor="middle" fill="#666">git merge feature</text>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="visual-section">
+                <h3>Удаленная работа</h3>
+                <div class="remote-diagram">
+                  <svg width="800" height="300" viewBox="0 0 800 300">
+                    <!-- Local Repository -->
+                    <rect x="50" y="100" width="200" height="100" rx="10" fill="#e1f5fe" stroke="#0288d1" stroke-width="2"/>
+                    <text x="150" y="150" text-anchor="middle" fill="#0288d1">Local Repository</text>
+                    
+                    <!-- Remote Repository -->
+                    <rect x="550" y="100" width="200" height="100" rx="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+                    <text x="650" y="150" text-anchor="middle" fill="#f57c00">Remote Repository</text>
+                    
+                    <!-- Arrows -->
+                    <path d="M250 120 L550 120" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <path d="M550 180 L250 180" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Commands -->
+                    <text x="400" y="100" text-anchor="middle" fill="#666">git push</text>
+                    <text x="400" y="200" text-anchor="middle" fill="#666">git pull</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="docker">
+        <h2>Docker</h2>
+        <p>Раздел в разработке...</p>
+      </section>
+
+      <section id="ci-cd">
+        <h2>CI/CD</h2>
+        <p>Раздел в разработке...</p>
+      </section>
+
+      <section id="kubernetes">
+        <h2>Kubernetes</h2>
+        <p>Раздел в разработке...</p>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
